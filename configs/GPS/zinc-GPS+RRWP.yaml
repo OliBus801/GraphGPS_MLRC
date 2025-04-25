@@ -22,8 +22,6 @@ posenc_RRWP:
   enable: True
   ksteps: 21
   add_identity: True
-  add_node_attr: False
-  add_inverse: False
 train:
   mode: custom
   batch_size: 32
