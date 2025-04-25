@@ -8,6 +8,7 @@ from torch_geometric.utils import (get_laplacian, to_scipy_sparse_matrix,
                                    to_undirected, to_dense_adj, scatter)
 from torch_geometric.utils.num_nodes import maybe_num_nodes
 from graphgps.encoder.graphormer_encoder import graphormer_pre_processing
+from .rrwp import calculate_rrwp
 
 
 def compute_posenc_stats(data, pe_types, is_undirected, cfg):
@@ -20,6 +21,8 @@ def compute_posenc_stats(data, pe_types, is_undirected, cfg):
     'HKdiagSE': Diagonals of heat kernel diffusion.
     'ElstaticSE': Kernel based on the electrostatic interaction between nodes.
     'Graphormer': Computes spatial types and optionally edges along shortest paths.
+    ##### Added RRWP posenc encodings #####
+    'RRWP': Relative Random Walk Probabilities (RRWP) matrix.
 
     Args:
         data: PyG graph
@@ -34,7 +37,7 @@ def compute_posenc_stats(data, pe_types, is_undirected, cfg):
     # Verify PE types.
     for t in pe_types:
         if t not in ['LapPE', 'EquivStableLapPE', 'SignNet', 'RWSE', 'HKdiagSE',
-                     'HKfullPE', 'ElstaticSE', 'GraphormerBias']:
+                     'HKfullPE', 'ElstaticSE', 'GraphormerBias', 'RRWP']:
             raise ValueError(f"Unexpected PE stats selection {t} in {pe_types}")
 
     # Basic preprocessing of the input graph.
@@ -141,6 +144,14 @@ def compute_posenc_stats(data, pe_types, is_undirected, cfg):
             data,
             cfg.posenc_GraphormerBias.num_spatial_types
         )
+    
+    if 'RRWP' in pe_types:
+        param = cfg.posenc_RRWP
+
+        if param.ksteps is None:
+            data = calculate_rrwp(data)
+        else:
+            data = calculate_rrwp(data, param.ksteps)
 
     return data
 
