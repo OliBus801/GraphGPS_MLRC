@@ -1,4 +1,4 @@
-# GRIT Reimplementation for Course Project based on the Machine Learning Reproducibility Challenge (MLRC)
+# GRIT Reimplementation based on the Machine Learning Reproducibility Challenge (MLRC)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2305.17589-b31b1b.svg)](https://arxiv.org/abs/2305.17589)
 
