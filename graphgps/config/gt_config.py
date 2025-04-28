@@ -70,3 +70,19 @@ def set_cfg_gt(cfg):
     cfg.gt.bigbird.block_size = 3
 
     cfg.gt.bigbird.layer_norm_eps = 1e-6
+
+    # ------------- Special for GRIT ------------
+    cfg.gt.update_e = True
+    cfg.gt.attn = CN()
+    cfg.gt.attn.use = True
+    cfg.gt.attn.sparse = False
+    cfg.gt.attn.deg_scaler = True
+    cfg.gt.attn.use_bias = False
+    cfg.gt.attn.clamp = 5.
+    cfg.gt.attn.act = "relu"
+    cfg.gt.attn.full_attn = True
+    cfg.gt.attn.norm_e = True
+    cfg.gt.attn.O_e = True
+    cfg.gt.attn.edge_enhance = True
+
+

@@ -40,6 +40,8 @@ def calculate_rrwp(data,
 
     data["rrwp"] = P_diag
     data["rrwp_index"] = P_indices
-    data["rrpw_value"] = P_vals
+    data["rrwp_val"] = P_vals
+    data["log_deg"] = torch.log(degree_vector + 1)
+    data["deg"] = degree_vector.type(torch.long)
 
     return data
