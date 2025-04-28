@@ -1,6 +1,7 @@
 # GRIT Reimplementation based on the Machine Learning Reproducibility Challenge (MLRC)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2305.17589-b31b1b.svg)](https://arxiv.org/abs/2305.17589)
+[![arXiv](https://img.shields.io/badge/arXiv-2305.17589-b31b1b.svg)](https://arxiv.org/abs/2305.17589)
 
 This repository contains a partial reimplementation of the model proposed in the paper:
 
@@ -53,3 +54,12 @@ python main.py --cfg configs/GRIT/zinc-GRIT.yaml wandb.use False
 ```
 
 This command trains the reimplemented GRIT model on the ZINC dataset with the standard configurations given in the paper. 
+
+## Project Base and References
+
+This project is a fork of the [GraphGPS repository](https://github.com/rampasek/GraphGPS), which provides a general, powerful, and scalable framework for graph Transformers. We used GraphGPS codebase as the foundation for our reimplementation of the GRIT model.
+
+For more information please refer to:
+
+- **GraphGPS GitHub Repository**: [https://github.com/rampasek/GraphGPS](https://github.com/rampasek/GraphGPS)
+- **GRIT GitHub Repository**: [https://github.com/GRIT/GRIT](https://github.com/GRIT/GRIT)
