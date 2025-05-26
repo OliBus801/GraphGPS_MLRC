@@ -41,14 +41,14 @@ model:
   edge_decoding: dot
   graph_pooling: add
 gt:
-  layer_type: GritTransformer
+  layer_type: GritTransformer_Modif
   layers: 10
   n_heads: 8
   dim_hidden: 64  # `gt.dim_hidden` must match `gnn.dim_inner`
   dropout: 0.0
   layer_norm: False
   batch_norm: True
-#  bn_momentum: 0.01
+  bn_momentum: 0.01
   attn_dropout: 0.2
   attn:
     clamp: 5.

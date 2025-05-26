@@ -8,6 +8,7 @@ scripts/pcqm4m/**/*.csv
 scripts/pcqm4m/**/*.gz
 scripts/pcqm4m/**/*.tsv
 scripts/pcqm4m/pcqm4m-v2/
+scripts/*
 slurm_history/
 datasets/
 pretrained/

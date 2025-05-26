@@ -45,6 +45,8 @@ def set_cfg_gt(cfg):
     cfg.gt.layer_norm = False
 
     cfg.gt.batch_norm = True
+    cfg.gt.bn_momentum = 0.1 # 0.01
+    cfg.gt.bn_no_runner = False
 
     cfg.gt.residual = True
 
